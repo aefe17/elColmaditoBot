@@ -1,6 +1,8 @@
 from flask import Flask
 from threading import Thread
 
+#This file keeps the bot alive. 
+
 app = Flask('')
 
 @app.route('/')

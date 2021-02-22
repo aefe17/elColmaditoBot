@@ -16,7 +16,7 @@ client = discord.Client()
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-
+#Sends messages depending on the command sent through chat. 
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -28,5 +28,7 @@ async def on_message(message):
     if message.content.startswith('$reto'):
         await message.channel.send(f'Aqui esta el reto: {get_challenge()}')
 
+#runs server to keep alive the bot.
 keep_alive()
+#runs the bot with the provided token key.
 client.run(Token_Key)
