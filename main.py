@@ -1,35 +1,32 @@
 import discord
 import os
-import requests
-import json
+from discord import channel
 from dotenv import load_dotenv
-from keep_alive import keep_alive
+from Server.keep_alive import keep_alive
+from Functionalities.quotes import get_quote
+from Functionalities.challenge import get_challenge
 
+#Loads token to be read by discord library 
 load_dotenv()
-client = discord.Client()
 Token_Key = os.getenv("DISCORD_TOKEN")
 
-
-def get_quote():
-    response = requests.get('https://zenquotes.io/api/random')
-    json_data = json.loads(response.text)
-    quote = json_data[0]['q'] + " -" + json_data[0]['a']
-    return quote
+client = discord.Client()
 
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return 
-    if message.content.startswith('$hello'):
-        await message.channel.send("Hello! I'm Encourage Bot")
+    if message.content.startswith('$hola'): 
+        await message.author.send('¡Hola soy el bot del colmadito! Estos son mis comandos: \n$hola: Te saludo y te doy mi lista de comandos disponibles \n$quote: Te doy un quote \n$reto: Te envio un coding challenge')
     if message.content.startswith('$quote'):
         await message.channel.send(f'Here is your quote: {get_quote()}')
-    if message.content.startswith('$salute'):
-        await message.channel.send("Klk menol, somo un bo' pa hace senti mejol :v")
+    if message.content.startswith('$reto'):
+        await message.channel.send(f'Aqui esta el reto: {get_challenge()}')
 
 keep_alive()
 client.run(Token_Key)
