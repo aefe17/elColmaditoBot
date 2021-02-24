@@ -20,7 +20,7 @@ async def Comandos(message):
 @bot.command(name='Cita', help='Sends a inspirational Quote')
 async def Cita(message):
     await message.send(f'Here is your quote: {get_quote()}')
-@bot.command(name='challenge', help='Sends a coding challenge to the discord')
+@bot.command(name='Challenge', help='Sends a coding challenge to the discord')
 async def Challenge(message):
     await message.send(f'Aqui esta el reto: {get_challenge()}')
 @bot.command(name='challengeList', help='Returns Challenges list')
