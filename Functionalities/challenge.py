@@ -1,6 +1,9 @@
 import json
 import requests 
 import random
+import discord
+
+client = discord.Client()
 
 challenges = []
 with open('Functionalities\challenges.json') as json_file:
@@ -24,8 +27,12 @@ def get_challenge():
 #this function adds a new challenge to the challenges list
 def new_challenge(challenge_url):
     challenge_id = challenge_url.split('/')[-3]
-    temp.append(challenge_id)
-    write_json(data)
+    if challenge_id not in challenges:
+        temp.append(challenge_id)
+        write_json(data)
+        return f'Se añadio https://www.codewars.com/kata/{challenge_id} a la lista!'
+    else:
+        return 'El reto ya existe en nuestra base de datos!'        
 
 #this function return our current challenge list
 def get_challengeList():

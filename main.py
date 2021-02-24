@@ -28,10 +28,8 @@ async def challengeList(message):
     await message.send(f'Aqui nuestra lista de retos: {get_challengeList()}')
 @bot.command(name='addChallenge', help='Adds a new challenge into the challenges_list')
 async def addChallenge(message):
-    url = message.message.content.split(' ')[2]
-    new_challenge(url)
-    await message.channel.send('Added ' + url + ' to list!')
-
+    url = message.message.content.split(' ')[1]
+    await message.channel.send(new_challenge(url))
 
 #runs server to keep alive the bot.
 keep_alive()
