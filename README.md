@@ -4,7 +4,7 @@ The purpose of this bot is to make it so it can send daily a new python challeng
 It sends can send challenges and it is made possible by the use of the codewars API 
 
 # Features
-Stores challenges into the challenges.json file.
+* Stores challenges into the challenges.json file.
 
 # Commands
 It's current comands are:
