@@ -1,9 +1,10 @@
 # Python devoloped Bot for discord
 The purpose of this bot is to make it so it can send daily a new python challenge for our group. 
 
-It sends can send challenges and it is made possible by the use of the codewars API (for the moment only works with this coding challenge page)
+It sends can send challenges and it is made possible by the use of the codewars API 
 
-It stores can store challenges into the challenges.json file.
+# Features
+Stores challenges into the challenges.json file.
 
 # Commands
 It's current comands are:
