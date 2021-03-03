@@ -35,7 +35,6 @@ def new_challenge(challenge_url):
         return 'El reto ya existe en nuestra base de datos!'        
 
 #this function return our current challenge list
-def get_challengeList():
     x = []
     for i in range(len(challenges)):
         response = requests.get(f"https://www.codewars.com/api/v1/code-challenges/{challenges[i]}")
@@ -43,5 +42,3 @@ def get_challengeList():
         challenge = json_data['url']
         x.append(challenge)
     return x
-
-
